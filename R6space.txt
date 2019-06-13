@@ -16,12 +16,12 @@ txt2html --bold_delimiter "~b~" r6-test-F-space.txt >r6-test-F-space.html
 sudo rm r6-test-F-space.txt
 
 space r6-fls-a
-echo "Createing FLS A space File"
+echo "Creating FLS A space File"
 txt2html --bold_delimiter "~b~" r6-fls-a-space.txt >r6-fls-a-space.html
 sudo rm r6-fls-a-space.txt
 
 space r6-fls-b
-echo "Createing FLS B space File"
+echo "Creating FLS B space File"
 txt2html --bold_delimiter "~b~" r6-fls-b-space.txt >r6-fls-b-space.html
 sudo rm r6-fls-b-space.txt
 echo "Finished"
