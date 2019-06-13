@@ -1,0 +1,2 @@
+#!/bin/bash suite=$1 sed 's/$/
+/' ${suite}-serverinfo.txt > ${suite}-serverinfo.htm

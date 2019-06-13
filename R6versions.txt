@@ -1,0 +1,39 @@
+#!/bin/bash
+cd /var/www/html/CM
+versions r6-dev-a
+echo "Creating Dev A Version File"
+txt2html --bold_delimiter "~b~" r6-dev-a-versions.txt >r6-dev-a-versions.html
+sudo rm r6-dev-a-versions.txt
+
+versions r6-dev-b
+echo "Creating Dev B Version File"
+txt2html --bold_delimiter "~b~" r6-dev-b-versions.txt >r6-dev-b-versions.html
+sudo rm r6-dev-b-versions.txt
+
+versions r6-test-F
+echo "Creating Test F Version File"
+txt2html --bold_delimiter "~b~" r6-test-F-versions.txt >r6-test-F-versions.html
+sudo rm r6-test-F-versions.txt
+
+FLSversions r6-fls-a
+echo "Creating FLS A Version File"
+txt2html --bold_delimiter "~b~" r6-fls-a-versions.txt >r6-fls-a-versions.html
+sudo rm r6-fls-a-versions.txt
+
+FLSversions r6-fls-b
+echo "Creating FLS B Version File"
+txt2html --bold_delimiter "~b~" r6-fls-b-versions.txt >r6-fls-b-versions.html
+sudo rm r6-fls-b-versions.txt
+echo "Finished"
+
+versions r6-fls-c
+echo "Creating FLS C Version File"
+txt2html --bold_delimiter "~b~" r6-fls-c-versions.txt >r6-fls-c-versions.html
+sudo rm r6-fls-c-versions.txt
+echo "Finished"
+
+versions r6-perf-a
+echo "Creating perf A Version File"
+txt2html --bold_delimiter "~b~" r6-perf-a-versions.txt >r6-perf-a-versions.html
+sudo rm r6-perf-a-versions.txt
+echo "Finished"

@@ -1,0 +1,28 @@
+#!/bin/bash
+cd /var/www/html/CM
+space r5-dev-a
+echo "Creating Dev A space File"
+txt2html --bold_delimiter "~b~" r5-dev-a-space.txt >r5-dev-a-space.html
+sudo rm r5-dev-a-space.txt
+
+space r5-dev-b
+echo "Creating Dev B space File"
+txt2html --bold_delimiter "~b~" r5-dev-b-space.txt >r5-dev-b-space.html
+sudo rm r5-dev-b-space.txt
+
+space r5-test-c
+echo "Creating Test C space File"
+txt2html --bold_delimiter "~b~" r5-test-c-space.txt >r5-test-c-space.html
+sudo rm r5-test-c-space.txt
+
+space r5-test-d
+echo "Creating Test d space File"
+txt2html --bold_delimiter "~b~" r5-test-d-space.txt >r5-test-d-space.html
+sudo rm r5-test-d-space.txt
+
+space r4-fls-c
+echo "Creating FLS C space File"
+txt2html --bold_delimiter "~b~" r4-fls-c-space.txt >r4-fls-c-space.html
+sudo rm r4-fls-c-space.txt
+
+echo "Finished"

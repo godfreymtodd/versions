@@ -1,0 +1,55 @@
+#!/bin/bash
+suite=$1
+# Define a timestamp function
+timestamp() {
+  date "+%Y-%m-%d_%H:%M:%S"
+}
+
+echo ~b~${suite}~b~ >${suite}-allversions.txt
+timestamp >>${suite}-allversions.txt
+
+echo -en '\n'>>${suite}-allversions.txt
+echo ~b~app~b~ >>${suite}-allversions.txt
+echo -en '\n'>>${suite}-allversions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-app.jfw cat /etc/redhat-release >> ${suite}-allversions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-app.jfw rpm -qa >> ${suite}-allversions.txt
+echo -en '\n'>>${suite}-allversions.txt
+
+echo ~b~ds~b~ >>${suite}-allversions.txt
+echo -en '\n'>>${suite}-allversions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-ds.jfw cat /etc/redhat-release >> ${suite}-allversions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-ds.jfw rpm -qa >> ${suite}-allversions.txt
+
+echo -en '\n'>>${suite}-allversions.txt
+echo ~b~pg~b~ >>${suite}-allversions.txt
+echo -en '\n'>>${suite}-allversions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-pg.jfw cat /etc/redhat-release >> ${suite}-allversions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-pg.jfw rpm -qa >> ${suite}-allversions.txt
+echo -en '\n'>>${suite}-allversions.txt
+
+echo ~b~xorcl~b~ >>${suite}-allversions.txt
+echo -en '\n'>>${suite}-allversions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xorcl.jfw cat /etc/redhat-release >> ${suite}-allversions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xorcl.jfw rpm -qa >> ${suite}-allversions.txt
+
+echo -en '\n'>>${suite}-allversions.txt
+echo ~b~xapp~b~ >>${suite}-allversions.txt
+echo -en '\n'>>${suite}-allversions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xapp.jfw cat /etc/redhat-release >> ${suite}-allversions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xapp.jfw rpm -qa >> ${suite}-allversions.txt
+echo -en '\n'>>${suite}-allversions.txt
+
+echo ~b~admin~b~ >>${suite}-allversions.txt
+echo -en '\n'>>${suite}-allversions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-admin.jfw cat /etc/redhat-release >> ${suite}-allversions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-admin.jfw rpm -qa >> ${suite}-allversions.txt
+
+echo -en '\n'>>${suite}-allversions.txt
+
+
+echo ~b~DC~b~ >>${suite}-allversions.txt
+echo -en '\n'>>${suite}-allversions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-dc.jfw cat /etc/redhat-release >> ${suite}-allversions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-dc.jfw rpm -qa >> ${suite}-allversions.txt
+
+

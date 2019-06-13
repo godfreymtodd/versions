@@ -1,0 +1,39 @@
+#!/bin/bash
+cd /var/www/html/CM
+versions r5-dev-a
+echo "Creating Dev A Version File"
+txt2html --bold_delimiter "~b~" r5-dev-a-versions.txt >r5-dev-a-versions.html
+sudo rm r5-dev-a-versions.txt
+
+versions r5-dev-b
+echo "Creating Dev B Version File"
+txt2html --bold_delimiter "~b~" r5-dev-b-versions.txt >r5-dev-b-versions.html
+sudo rm r5-dev-b-versions.txt
+
+versions r5-test-c
+echo "Creating Test C Version File"
+txt2html --bold_delimiter "~b~" r5-test-c-versions.txt >r5-test-c-versions.html
+sudo rm r5-test-c-versions.txt
+
+versions r5-test-d
+echo "Creating Test d Version File"
+txt2html --bold_delimiter "~b~" r5-test-d-versions.txt >r5-test-d-versions.html
+sudo rm r5-test-d-versions.txt
+
+FLSversions r4-fls-b
+echo "Creating FLSVersion  File for fls-b"
+txt2html --bold_delimiter "~b~" r4-fls-b-versions.txt >r4-fls-b-versions.html
+sudo rm r4-fls-b-versions.txt
+
+FLSversions r4-fls-a
+echo "Creating FLSVersion File for fls-a"
+txt2html --bold_delimiter "~b~" r4-fls-a-versions.txt >r4-fls-a-versions.html
+sudo rm r4-fls-a-versions.txt
+
+FLSversions r4-fls-c
+echo "Creating FLSVersion File for fls-c"
+txt2html --bold_delimiter "~b~" r4-fls-c-versions.txt >r4-fls-c-versions.html
+sudo rm r4-fls-c-versions.txt
+
+
+echo "Finished"

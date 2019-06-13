@@ -1,0 +1,43 @@
+#!/bin/bash
+suite=$1
+# Define a timestamp function
+timestamp() {
+  date "+%Y-%m-%d_%H:%M:%S"
+}
+
+echo ${suite} >${suite}-space.txt
+timestamp >>${suite}-space.txt
+echo -en '\n'>>${suite}-space.txt
+
+echo ~b~xorcl~b~ >>${suite}-space.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xorcl.jfw cat /etc/redhat-release >> ${suite}-space.txt 
+echo -en '\n'>>${suite}-space.txt
+echo Storage Information>>${suite}-space.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xorcl.jfw df -k >> ${suite}-space.txt
+
+echo -en '\n'>>${suite}-space.txt
+
+echo ~b~admin~b~ >>${suite}-space.txt
+echo -en '\n'>>${suite}-space.txt
+echo Storage Information>>${suite}-space.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-admin.jfw df -k >> ${suite}-space.txt
+echo -en '\n'>>${suite}-space.txt
+
+echo ~b~pg~b~ >>${suite}-space.txt
+echo -en '\n'>>${suite}-space.txt
+echo Storage Information>>${suite}-space.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-pg.jfw df -k >> ${suite}-space.txt
+echo -en '\n'>>${suite}-space.txt
+
+echo ~b~ds~b~ >>${suite}-space.txt
+echo -en '\n'>>${suite}-space.txt
+echo Storage Information>>${suite}-space.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-ds.jfw df -k >> ${suite}-space.txt
+echo -en '\n'>>${suite}-space.txt
+
+echo ~b~app~b~ >>${suite}-space.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-app.jfw cat /etc/redhat-release >> ${suite}-space.txt 
+echo -en '\n'>>${suite}-space.txt
+echo Storage Information>>${suite}-space.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-app.jfw df -k >> ${suite}-space.txt
+

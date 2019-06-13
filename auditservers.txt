@@ -1,0 +1,7 @@
+#!/bin/bash
+R5versions
+R6versions
+R5space
+R6space
+sendversions
+sendspace

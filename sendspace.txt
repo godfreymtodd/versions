@@ -1,0 +1,3 @@
+#/bin/bash
+cd /var/www/html/CM/
+sshpass -p 'R@sputin69!' scp * godfreyt@10.20.23.87:"/usr/sites/jfw/versions/"

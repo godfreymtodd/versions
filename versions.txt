@@ -1,0 +1,77 @@
+#!/bin/bash
+suite=$1
+# Define a timestamp function
+timestamp() {
+  date "+%Y-%m-%d_%H:%M:%S"
+}
+
+echo ~b~${suite}~b~ >${suite}-versions.txt
+timestamp >>${suite}-versions.txt
+
+echo -en '\n'>>${suite}-versions.txt
+echo ~b~app~b~ >>${suite}-versions.txt
+echo -en '\n'>>${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-app.jfw cat /etc/redhat-release >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-app.jfw rpm -gq JPES |grep jfw- >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-app.jfw rpm -qa |grep tomcat >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-app.jfw rpm -qa |grep java >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-app.jfw rpm -qa |grep python-2 >> ${suite}-versions.txt
+echo -en '\n'>>${suite}-versions.txt
+
+echo ~b~ds~b~ >>${suite}-versions.txt
+echo -en '\n'>>${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-ds.jfw cat /etc/redhat-release >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-ds.jfw rpm -gq JPES |grep jfw-ds >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-ds.jfw rpm -qa |grep tomcat >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-ds.jfw rpm -qa |grep python-2 >> ${suite}-versions.txt
+
+echo -en '\n'>>${suite}-versions.txt
+echo ~b~pg~b~ >>${suite}-versions.txt
+echo -en '\n'>>${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-pg.jfw cat /etc/redhat-release >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-pg.jfw rpm -gq JPES |grep jfw- >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-pg.jfw rpm -qa |grep postgresql-server >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-pg.jfw rpm -qa |grep java >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-pg.jfw rpm -qa |grep python-2 >> ${suite}-versions.txt
+echo -en '\n'>>${suite}-versions.txt
+
+echo ~b~xorcl~b~ >>${suite}-versions.txt
+echo -en '\n'>>${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xorcl.jfw cat /etc/redhat-release >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xorcl.jfw rpm -gq JPES |grep jfw- >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xorcl.jfw rpm -qa |grep java >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xorcl.jfw rpm -qa |grep tomcat >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xorcl.jfw rpm -qa |grep python-2 >> ${suite}-versions.txt
+
+echo -en '\n'>>${suite}-versions.txt
+echo ~b~xapp~b~ >>${suite}-versions.txt
+echo -en '\n'>>${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xapp.jfw cat /etc/redhat-release >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xapp.jfw rpm -gq JPES |grep jfw- >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xapp.jfw rpm -qa |grep tomcat >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xapp.jfw rpm -qa |grep java >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-xapp.jfw rpm -qa |grep python-2 >> ${suite}-versions.txt
+echo -en '\n'>>${suite}-versions.txt
+
+echo ~b~admin~b~ >>${suite}-versions.txt
+echo -en '\n'>>${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-admin.jfw cat /etc/redhat-release >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-admin.jfw rpm -gq JPES |grep jfw->> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-admin.jfw rpm -qa |grep python-2->> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-admin.jfw rpm -qa |grep ansible >> ${suite}-versions.txt
+
+echo -en '\n'>>${suite}-versions.txt
+
+
+echo ~b~DC~b~ >>${suite}-versions.txt
+echo -en '\n'>>${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-dc.jfw cat /etc/redhat-release >> ${suite}-versions.txt 
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-dc.jfw rpm -qa |grep smint- >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-dc.jfw rpm -qa |grep ref- >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-dc.jfw rpm -qa |grep qsp- >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-dc.jfw rpm -qa |grep tomcat >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-dc.jfw rpm -qa |grep java >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-dc.jfw rpm -qa |grep guacamole- >> ${suite}-versions.txt
+ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-dc.jfw rpm -qa |grep python-2 >> ${suite}-versions.txt
+
+

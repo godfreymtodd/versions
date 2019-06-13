@@ -1,0 +1,1 @@
+#!/bin/bash suite=$1 echo '' >${suite}-serverinfo.txt echo '' >>${suite}-serverinfo.txt ssh -o ConnectTimeout=5 -oStrictHostKeyChecking=no -i /home/godfreyt/git/prag-credentials/dr-jenkins dr-jenkins@${suite}-admin.jfw df -k >> ${suite}-serverinfo.txt echo '' >>${suite}-serverinfo.txt echo '' >>${suite}-serverinfo.txt
